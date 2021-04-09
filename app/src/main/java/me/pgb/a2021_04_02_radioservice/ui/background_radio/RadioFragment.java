@@ -23,6 +23,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
+import me.pgb.a2021_04_02_radioservice.MainActivity;
 import me.pgb.a2021_04_02_radioservice.R;
 import me.pgb.a2021_04_02_radioservice.controllers.MediaPlayerHandler;
 import me.pgb.a2021_04_02_radioservice.service.RadioService;
@@ -31,6 +32,7 @@ import me.pgb.a2021_04_02_radioservice.service.ServiceContainer;
 public class RadioFragment extends Fragment {
 
 
+    MainActivity main;
 
     private String TAG = "FRAGMENT_RADIO";
 
@@ -57,6 +59,8 @@ public class RadioFragment extends Fragment {
         final TextView txt_location = root.findViewById(R.id.textView_RSLocation);
         final TextView txt_link = root.findViewById(R.id.textView_RSlink);
 
+        main = (MainActivity) getActivity();
+
         Bundle bundle = this.getArguments();
 
         String nameBundle = bundle.getString("name");
@@ -73,6 +77,7 @@ public class RadioFragment extends Fragment {
 
         link = txt_link.getText().toString();
         Log.i("LINK", " " + link);
+        main.setRadioServiceURL(link);
 
         radioToggleButton = root.findViewById(R.id.radio_toggle_button);
         radioToggleButton.setOnClickListener(new View.OnClickListener() {

@@ -16,11 +16,8 @@ import me.pgb.a2021_04_02_radioservice.controllers.MediaPlayerHandler;
 public class RadioService extends Service {
 
     private MediaPlayerHandler mediaPlayerHandler;
-//    private String URL="";
     private String URL = "http://stream.whus.org:8000/whusfm";
 //    private String URL = RadioFragment.getURL();
-
-
     private final String TAG = "_SERVICE";
     private final IBinder binder = new LocalBinder();
     private int counter = 0;
@@ -117,9 +114,9 @@ public class RadioService extends Service {
         myHandler.sendMessage(msg);
     }
     
-//    public void setURL(String link){
-//        URL =link;
-//    }
+    public void setURL(String link){
+        URL = link;
+    }
 
 
 }

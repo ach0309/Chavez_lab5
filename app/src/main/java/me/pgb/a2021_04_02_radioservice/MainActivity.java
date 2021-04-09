@@ -118,4 +118,8 @@ public class MainActivity extends AppCompatActivity {
         //unbindService(connection);
     }
 
+    public void setRadioServiceURL(String link){
+        ServiceContainer.radioService.setURL(link);
+    }
+
 }
